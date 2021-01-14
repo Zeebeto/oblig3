@@ -1,0 +1,13 @@
+eksempel i todo liste, se hvor langt jeg kommer på det.
+
+ENTEN
+
+liste over spill som kommer, eventuelt spill som er ute
+om spillet er ute, er det spilt gjennom, rank 1 - 10
+
+ELLER
+
+en ønskeliste over magic kort
+med:
+- navn, hvor mange jeg vill ha, hvor mange jeg har, total
+- bilde av kortet, link til cardmarket, og pris (se om jeg klarer å¨få en API på prisen fra cardmarket)

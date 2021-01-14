@@ -1,0 +1,25 @@
+I løpet av uke 2 skal du levere:
+
+Beskrivelse av hva du vil lage
+Skisser av skjermbildene
+Dersom du synes det er vanskelig å være kreativ eller å velge, 
+er det bare å spørre om hjelp 
+- på samme måte som i alle andre ting man kan stå fast med. 
+
+I løpet av uke 5 skal du levere:
+
+En ferdig applikasjon med alt som er listet opp i de neste punktene. 
+Du skal sende en epost til oblig@getacademy.no med både: 
+lenke til et GitHub-repository som inneholder koden som er laget
+lenke til GitHub-pages, hvor applikasjonen skal kunne kjøres direkte
+Applikasjonen skal ha minst to forskjellige sider
+Applikasjonen skal være laget ved hjelp av model-view-controller
+Modellen skal inneholde minst én liste med objekter - og minst én løkke som går gjennom denne listen
+Applikasjonen skal inneholde minst ett eksempel på hver av følgende ting:
+vise fremdata fra modellen 
+legge til data i modellen
+endre data i modellen
+slette data i modellen
+Det skal være minst fire unit tester av controller-funksjoner
+minst to som viser at funksjonene gjør som de skal med riktig input 
+minst to som viser at funksjonene takler ugyldig input på en god måte

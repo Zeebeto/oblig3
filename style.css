@@ -1,0 +1,21 @@
+body {
+    background-color: #909090;
+}
+table {
+    width: 700px;
+    height: 30px;
+    position: relative;
+}
+table, th, tr, td {
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+td {
+    text-align: center;
+}
+#addCard {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
