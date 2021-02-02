@@ -1,32 +1,27 @@
-function previewCard(){
-    const picInput = document.getElementById("picInput");
-    model.Preview = picInput.value;
-    displayCard();
-}
 
 function pushCard(){
-let cardNameInput = document.getElementById("nameInput");
-let cardWantInput = document.getElementById("wantInput");
-let cardHaveInput = document.getElementById("haveInput");
-let cardPriceInput = document.getElementById("priceInput");
-let cardPicInput = document.getElementById("picInput");
-let cardBuyInput = document.getElementById("buyInput");
+let cardNameInput = model.tempCard[0].name;
+let cardWantInput = model.tempCard[0].want;
+let cardHaveInput = model.tempCard[0].have;
+let cardPriceInput = model.tempCard[0].price;
+let cardPicInput = model.tempCard[0].picLink;
+let cardBuyInput = model.tempCard[0].buyLink;
 
-if(cardNameInput.value == "" || cardPicInput.value == "" || cardBuyInput.value == ""){
+if(cardNameInput == "" || cardPicInput == "" || cardBuyInput == ""){
     model.errorMode = true;
     console.log("error");
     displayCard();
 }else{
     model.cards.push({
-        name: cardNameInput.value,
-        want: cardWantInput.value,
-        have: cardHaveInput.value,
-        price: cardPriceInput.value,
-        buyLink: cardBuyInput.value,
-        picLink: cardPicInput.value,
+        name: cardNameInput,
+        want: cardWantInput,
+        have: cardHaveInput,
+        price: cardPriceInput,
+        buyLink: cardBuyInput
     });
     console.log("pushed");
     model.errorMode = false;
+    clearTempCard();
     listView();}
 }
 
@@ -37,22 +32,40 @@ function deleteCard(index){
 
 function updateCard(index) {
     const card = model.cards[index];
-    let cardNameInput = document.getElementById("nameInput");
-    let cardWantInput = document.getElementById("wantInput");
-    let cardHaveInput = document.getElementById("haveInput");
-    let cardPriceInput = document.getElementById("priceInput");
-    let cardPicInput = document.getElementById("picInput");
-    let cardBuyInput = document.getElementById("buyInput");
-    if(cardNameInput.value == "" || cardPicInput.value == "" || cardBuyInput.value == ""){
+    let cardNameInput = model.tempCard[0].name;
+    let cardWantInput = model.tempCard[0].want;
+    let cardHaveInput = model.tempCard[0].have;
+    let cardPriceInput = model.tempCard[0].price;
+    let cardPicInput = model.tempCard[0].picLink;
+    let cardBuyInput = model.tempCard[0].buyLink;
+    if(cardNameInput == "" || cardPicInput == "" || cardBuyInput == ""){
         model.errorMode = true;
         console.log("error");
         displayCard();
     }else{
-    card.name = cardNameInput.value;
-    card.want = cardWantInput.value;
-    card.have = cardHaveInput.value;
-    card.price = cardPriceInput.value;
-    card.picLink = cardPicInput.value;
-    card.buyLink = cardBuyInput.value;
+    card.name = cardNameInput == "" ? card.name : cardNameInput;
+    card.want = cardWantInput == "" ? card.want : cardWantInput;
+    card.have = cardHaveInput == "" ? card.have : cardHaveInput;
+    card.price = cardPriceInput == "" ? card.price : cardPriceInput;
+    card.picLink = cardPicInput == "" ? card.picLink : cardPicInput;
+    card.buyLink = cardBuyInput == "" ? card.buyLink : cardBuyInput;
+    clearTempCard();
     listView();}
+}
+function clearTempCard(){
+model.tempCard[0].name = "";
+model.tempCard[0].want = 0;
+model.tempCard[0].have = 0;
+model.tempCard[0].price = 0;
+model.tempCard[0].picLink = "";
+model.tempCard[0].buyLink = "";
+}
+
+function addTempCard(index){
+model.tempCard[0].name = model.cards[index].name;
+model.tempCard[0].want = model.cards[index].want;
+model.tempCard[0].have = model.cards[index].have;
+model.tempCard[0].price = model.cards[index].price;
+model.tempCard[0].picLink = model.cards[index].picLink;
+model.tempCard[0].buyLink = model.cards[index].buyLink;
 }

@@ -16,9 +16,16 @@ const model = {
         price: 27,
         buyLink: "https://www.cardmarket.com/en/Magic/Products/Singles/Throne-of-Eldraine/The-Great-Henge",
         picLink: "https://static.cardmarket.com/img/1d92d33acc18427a98af7cf38ec75e2a/items/1/ELD/401744.jpg",
-        }
+        },
                     ],
-    Picture_icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Picture_icon_BLACK.svg/1200px-Picture_icon_BLACK.svg.png",
+    tempCard:[{
+        name: "",
+        want: 0,
+        have: 0,
+        price: 0,
+        buyLink: "",
+        picLink: "",
+    }],
     Preview: "", 
     errorMode: false,
             };

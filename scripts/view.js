@@ -34,7 +34,7 @@ return `
         <td>${card.have}</td>
         <td>${card.price}</td>
         <td><a href="${card.buyLink}" target="_blank">Link</a></td>
-        <td><button id="edit-btn" onclick="editCardView(${index})">Edit</button></td>
+        <td><button id="edit-btn" onclick="editCardView(${index}); addTempCard(${index})">Edit</button></td>
         <td><button onclick="deleteCard(${index})">X</button></td>
     </tr>
 `;
@@ -43,37 +43,43 @@ return `
 function addCardView(){
     addCardHTML = `
     <div id="add-card">
-        <button onclick="listView()" style="border-radius: 10px">cancel</button>
+        <button onclick="listView(); clearTempCard()" style="border-radius: 10px">cancel</button>
         <h1>Add card:</h1>
         <h2>card name: <input id="nameInput" 
                               class="input-text" 
                               type="text" 
                               placeholder="NAME" 
+                              oninput="model.tempCard[0].name = this.value"
                               value=""></h2>
         <h2>Want: <input id="wantInput" 
                          class="input-number" 
                          type="number" 
+                         oninput="model.tempCard[0].want = this.value"
                          value="4"></h2>
         <h2>Have: <input id="haveInput" 
                          class="input-number" 
                          type="number" 
+                         oninput="model.tempCard[0].have = this.value"
                          value="0" ></h2>
         <h2>price (euro): <input id="priceInput" 
                                  class="input-number" 
                                  type="number" 
                                  placeholder="PRICE" 
+                                 oninput="model.tempCard[0].price = this.value"
                                  value="0"></h2>
         <h2>Cardmarket link: <input id="buyInput" 
                                     class="input-text" 
                                     type="text" 
                                     placeholder="Cardmarket link" 
+                                    oninput="model.tempCard[0].buyLink = this.value"
                                     value=""></h2>
         <h2>Picture link: <input id="picInput" 
                                  class="input-text" 
                                  type="text" 
                                  placeholder="Picture" 
+                                 oninput="model.tempCard[0].picLink = model.Preview = this.value"
                                  value="">
-        <button onclick="previewCard()" 
+        <button onclick="displayCard();" 
                 style="border-radius: 10px">show picture</button></h2>
         <button onclick="pushCard()" 
                 class="bigBtn">ADD CARD</button>
@@ -107,27 +113,33 @@ editCardHTML = `
         <h2>card name: <input id="nameInput" 
                               class="input-text" 
                               type="text" 
+                              onchange="model.tempCard[0].name = this.value"
                               value="${card.name}"></h2>
         <h2>Want: <input id="wantInput" 
                          class="input-number" 
                          type="number" 
+                         oninput="model.tempCard[0].want = this.value"
                          value="${card.want}"></h2>
         <h2>Have: <input id="haveInput" 
                          class="input-number" 
                          type="number" 
+                         oninput="model.tempCard[0].have = this.value"
                          value="${card.have}" ></h2>
         <h2>price (euro): <input id="priceInput" 
                                  class="input-number" 
                                  type="number" 
+                                 oninput="model.tempCard[0].price = this.value"
                                  value="${card.price}"></h2>
         <h2>Cardmarket link: <input id="buyInput" 
                                     class="input-text" 
                                     type="text" 
                                     placeholder="Cardmarket link" 
+                                    oninput="model.tempCard[0].buyLink = this.value"
                                     value="${card.buyLink}"></h2>
         <h2>Picture link: <input id="picInput" 
                                  class="input-text" 
                                  type="text" 
+                                 oninput="model.tempCard[0].picLink = this.value"
                                  value="${card.picLink}">
         <button onclick="updateCard(${index})" 
                 class="bigBtn">DONE EDIT</button>
