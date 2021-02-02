@@ -14,8 +14,9 @@
     <div id="qunit-fixture"></div>
     <script>
         function listView(){ }
+        function displayCard(){}
         //dummy view
-        QUnit.test('legge til', function(assert) {
+        QUnit.test('legge til objekt i model', function(assert) {
              model.tempCard[0].name = "navn";
              model.tempCard[0].picLink = "bilde";
              model.tempCard[0].buyLink = "sjappe";
@@ -25,42 +26,47 @@
             let expected = lengthBefore +1;
             assert.deepEqual(actual, expected);
           });
+         
+          QUnit.test('legge til, ugyldig input', function(assert) {
+             model.tempCard[0].name = "";
+             model.tempCard[0].picLink = "";
+             model.tempCard[0].buyLink = "";
+          pushCard();
+            let actual = model.errorMode;
+            let expected = true;
+            assert.deepEqual(actual, expected);
+          });
 
-          // QUnit.test('sjekk ikke valgt stolpe ', function(assert) {
-          //   chooseBar(null)
-          //   let actual = chosenBar;
-          //   let expected = null;
-          //   assert.deepEqual(actual, expected);
-          // });
+          QUnit.test('Slette objekt fra model', function(assert) {
+            let preDelete = model.cards.length;
+          deleteCard();
+            let actual = model.cards.length;
+            let expected = preDelete -1;
+            assert.deepEqual(actual, expected);
+          });
 
-          // QUnit.test('sjekk valgt stolpe slettes', function(assert) {
-          //   numbers = [7, 3, 1, 5, 8]
-          //   chosenBar = 1;
-          //   delBar()
-          //   let actual = numbers;
-          //   let expected = [3, 1, 5, 8];
-          //   assert.deepEqual(actual, expected);
-          // });
+          QUnit.test('edit, gyldig input', function(assert) {
+             model.tempCard[0].name = "kort";
+             model.tempCard[0].picLink = "bilde";
+             model.tempCard[0].buyLink = "butikk";
+             model.cards[0].name = "annet kort";
+             model.cards[0].picLink = "annet bilde";
+             model.cards[0].buyLink = "annen butikk";
+          updateCard();
+            let actual = model.cards[0].name;
+            let expected = "kort";
+            assert.deepEqual(actual, expected);
+          });
 
-          // QUnit.test('sjekk at stolpe blir lagt til', function(assert) {
-          //   numbers = [7, 3, 1, 5, 8]
-          //   inputValue = 5
-          //   createNewBar()
-          //   let actual = numbers;
-          //   let expected = [7, 3, 1, 5, 8, 5];
-          //   assert.deepEqual(actual, expected);
-          // });
-
-          // QUnit.test('sjekk at stolpe endres', function(assert) {
-          //   numbers = [7, 3, 1, 5, 8]
-          //   chosenBar = 1
-          //   inputValue = 5
-          //   changeBar()
-          //   let actual = numbers;
-          //   let expected = [5, 3, 1, 5, 8,];
-          //   assert.deepEqual(actual, expected);
-          // });
-
+          QUnit.test('edit, ugyldig input', function(assert) {
+             model.tempCard[0].name = "";
+             model.tempCard[0].picLink = "";
+             model.tempCard[0].buyLink = "";
+          updateCard();
+            let actual = model.errorMode;
+            let expected = true;
+            assert.deepEqual(actual, expected);
+          });
       </script>
       
 </body>
