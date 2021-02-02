@@ -49,10 +49,8 @@
              model.tempCard[0].name = "kort";
              model.tempCard[0].picLink = "bilde";
              model.tempCard[0].buyLink = "butikk";
-             model.cards[0].name = "annet kort";
-             model.cards[0].picLink = "annet bilde";
-             model.cards[0].buyLink = "annen butikk";
-          updateCard();
+             let beforeChange = model.cards[0].name;
+          updateCard(0);
             let actual = model.cards[0].name;
             let expected = "kort";
             assert.deepEqual(actual, expected);
