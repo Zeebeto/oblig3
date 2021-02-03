@@ -108,7 +108,7 @@ function editCardView(index){
 const card = model.cards[index];
 editCardHTML = `
 <div id="add-card">
-        <button onclick="listView()" style="border-radius: 10px">cancel</button>
+        <button onclick="listView(); clearTempCard()" style="border-radius: 10px">cancel</button>
         <h1>Add card:</h1>
         <h2>card name: <input id="nameInput" 
                               class="input-text" 
