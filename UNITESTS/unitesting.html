@@ -24,7 +24,7 @@
           pushCard();
             let actual = model.cards.length;
             let expected = lengthBefore +1;
-            assert.deepEqual(actual, expected);
+            assert.equal(actual, expected);
           });
          
           QUnit.test('legge til, ugyldig input', function(assert) {
@@ -34,15 +34,15 @@
           pushCard();
             let actual = model.errorMode;
             let expected = true;
-            assert.deepEqual(actual, expected);
+            assert.equal(actual, expected);
           });
 
           QUnit.test('Slette objekt fra model', function(assert) {
             let preDelete = model.cards.length;
-          deleteCard();
+          deleteCard(2);
             let actual = model.cards.length;
             let expected = preDelete -1;
-            assert.deepEqual(actual, expected);
+            assert.equal(actual, expected);
           });
 
           QUnit.test('edit, gyldig input', function(assert) {
@@ -53,17 +53,17 @@
           updateCard(0);
             let actual = model.cards[0].name;
             let expected = "kort";
-            assert.deepEqual(actual, expected);
+            assert.equal(actual, expected);
           });
 
           QUnit.test('edit, ugyldig input', function(assert) {
              model.tempCard[0].name = "";
              model.tempCard[0].picLink = "";
              model.tempCard[0].buyLink = "";
-          updateCard();
+          updateCard(1);
             let actual = model.errorMode;
             let expected = true;
-            assert.deepEqual(actual, expected);
+            assert.equal(actual, expected);
           });
       </script>
       
